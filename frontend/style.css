@@ -13,3 +13,10 @@ body {
 
     background-color: pink;
 }
+.pizza{
+    background-color: aquamarine;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
