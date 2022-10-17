@@ -7,20 +7,19 @@ const port = 8080
 app.use(express.json())
 
 app.get("/", (req, res)=> {
-    //console.log("müködik");
-    //res.send("Most mit csinal?")
 
+    app.use("/", express.static(`${__dirname}/../frontend/`));
     res.sendFile(path.join(`${__dirname}/../frontend/index.html`))
+
 })
 
 app.get("/api", (req, res)=> {
-    console.log("/api endpoint works");
-    //res.send("Most mit csinal?")
 
+    console.log("/api endpoint works");
     const pizzasJson = fs.readFileSync(`./database.json`)
-    //console.log(pizzasJson)
     const pizzasObj = JSON.parse(pizzasJson)
     res.json(pizzasObj)
+    
 })
 
 
