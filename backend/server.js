@@ -6,6 +6,7 @@ const port = 8080
 
 app.use(express.json())
 
+
 app.get("/", (req, res)=> {
 
     app.use("/", express.static(`${__dirname}/../frontend/`));
@@ -19,7 +20,7 @@ app.get("/api", (req, res)=> {
     const pizzasJson = fs.readFileSync(`./database.json`)
     const pizzasObj = JSON.parse(pizzasJson)
     res.json(pizzasObj)
-    
+
 })
 
 
