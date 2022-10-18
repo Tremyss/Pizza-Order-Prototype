@@ -3,7 +3,7 @@
         "id": "pizza1",
         "name": "Hawaii pizza",
         "ingredients": "pizzaparadicsom, mozzarella, kukorica, sonka, ananász",
-        "image": "src local",
+        "image": "../content/pizza1.jpg",
         "amount": 0,
         "price": 3090
     },
@@ -11,7 +11,7 @@
         "id": "pizza2",
         "name": "Margherita pizza",
         "ingredients": "pizzaparadicsom, dupla mozzarella, bazsalikom",
-        "image": "src local",
+        "image": "../content/pizza2.jpg",
         "amount": 0,
         "price": 2890
     },
@@ -19,7 +19,7 @@
         "id": "pizza3",
         "name": "Chicken carbonara pizza",
         "ingredients": "besamel, fokhagyma, sonka, bacon, lilahagyma, roston csirke, parmezán, mozzarella, újhagyma",
-        "image": "src local",
+        "image": "../content/pizza3.jpg",
         "amount": 0,
         "price": 3890
     },
@@ -27,7 +27,7 @@
         "id": "pizza4",
         "name": "Aphrodité pizza",
         "ingredients": "tejföl, roston csirke, koktélparadicsom, feta sajt, olívabogyó, bazsalikom, mozzarella",
-        "image": "src local",
+        "image": "../content/pizza4.jpg",
         "amount": 0,
         "price": 3090
     },
@@ -35,7 +35,7 @@
         "id": "pizza5",
         "name": "Rangers pizza",
         "ingredients": "BBQ, sajtkrém, roston csirke, császárszalonna, paradicsomkarika, mozzarella",
-        "image": "src local",
+        "image": "../content/pizza5.jpg",
         "amount": 0,
         "price": 3090
     },
@@ -43,7 +43,7 @@
         "id": "pizza6",
         "name": "Sonkás pizza",
         "ingredients": "pizzaparadicsom, mozzarella, sonka",
-        "image": "src local",
+        "image": "../content/pizza6.jpg",
         "amount": 0,
         "price": 2990
     },
@@ -51,7 +51,7 @@
         "id": "pizza7",
         "name": "Mérges vagyok pizza",
         "ingredients": "fokhagymás besamel, bacon, főtt-füstölt tarja, paprikás vastagkolbász, jalapeno, hegyes erős paprika, mozzarella",
-        "image": "src local",
+        "image": "../content/pizza7.jpg",
         "amount": 0,
         "price": 3590
     }

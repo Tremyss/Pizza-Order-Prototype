@@ -5,11 +5,10 @@ const app = express()
 const port = 8080
 
 app.use(express.json())
-
+app.use(express.static(`${__dirname}/../frontend/`));
 
 app.get("/", (req, res)=> {
 
-    app.use("/", express.static(`${__dirname}/../frontend/`));
     res.sendFile(path.join(`${__dirname}/../frontend/index.html`))
 
 })
