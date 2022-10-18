@@ -15,7 +15,7 @@ app.get("/", (req, res)=> {
 
 app.get("/api", (req, res)=> {
 
-    console.log("/api endpoint works");
+
     const pizzasJson = fs.readFileSync(`./database.json`)
     const pizzasObj = JSON.parse(pizzasJson)
     res.json(pizzasObj)
