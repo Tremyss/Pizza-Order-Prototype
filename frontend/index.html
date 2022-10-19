@@ -11,43 +11,47 @@
 
 <body>
   <h1>Mario's PIZZA</h1>
-  <div id="pizzas"></div>
-
-  <div id="order-div">
-
-    <div id="basket">
-
-      <h4>A rendelés összesítése:</h4>
-      <div id="basket-list"></div>
-      <div class="basket-line">
-        <div>Ár összesen:</div>
-        <div><span></span> forint</div>
+  <div class="main">
+    <div id="pizzas"></div>
+    <div id="order-div">
+      <div id="basket">
+  
+        <h4>A rendelés összesítése:</h4>
+        <div id="basket-list"></div>
+        <div class="basket-line">
+          <div>Ár összesen:</div>
+          <div><span></span> forint</div>
+        </div>
       </div>
+  
+      <form id="form">
+        <h5 id="user-instructions">Kérjük, add meg az adataidat, majd kattints a Rendelés gombra!</h5>
+        <label for="name">Név</label>
+        <input type="text" name="name" placeholder="Név">
+  
+        <label for="zipCode">Irányítószám</label>
+        <input type="text" name="zipCode" placeholder="irsz.">
+  
+        <label for="city">Város</label>
+        <input type="text" name="city" placeholder="Város">
+  
+        <label for="street">Utca</label>
+        <input type="text" name="street" placeholder="Utca">
+  
+        <label for="houseNumber">Házszám</label>
+        <input type="text" name="houseNumber" placeholder="hsz.">
+  
+        <button type="submit" id="submitBtn">Rendelés</button>
+  
+      </form>
+  
     </div>
-
-    <form id="form">
-      <h5 id="user-instructions">Kérjük, add meg az adataidat, majd kattints a Rendelés gombra!</h5>
-      <label for="name">Név</label>
-      <input type="text" name="name" placeholder="Név">
-
-      <label for="zipCode">Irányítószám</label>
-      <input type="text" name="zipCode" placeholder="irsz.">
-
-      <label for="city">Város</label>
-      <input type="text" name="city" placeholder="Város">
-
-      <label for="street">Utca</label>
-      <input type="text" name="street" placeholder="Utca">
-
-      <label for="houseNumber">Házszám</label>
-      <input type="text" name="houseNumber" placeholder="hsz.">
-
-      <button type="submit" id="submitBtn">Rendelés</button>
-
-    </form>
-
+  
+    
   </div>
 
+
+  
 
   <script src="script.js"></script>
 </body>

@@ -46,6 +46,7 @@ let getData = async () => {
     let pizzaInput = document.createElement("input");
     pizzaInput.setAttribute("type", "number");
     pizzaInput.setAttribute("id", `${pizza.id}-input`);
+    pizzaInput.defaultValue = 1;
     pizzaContent.appendChild(pizzaInput);
 
     let orderButton = document.createElement("button");

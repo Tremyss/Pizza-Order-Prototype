@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+/* szürke 1 : #525050
+szürke 2 :#3e3c3d
+szürke 3 :#333333
+szürke 4 :#1c1a1b
+foodbar felirat (hússzín) :#ce5051
+pirosas pink: #e90f31
+kicsit pinkebb pink:#f01d42 */
+
 * {
     margin: 0;
     padding: 0;
@@ -10,11 +21,23 @@ html {
 
 body {
     font-size: 1.6rem;
-
-    background-color: pink;
+    font-family: 'Comic Neue', cursive;
+    background-color: #403e3e;
+    color: white;
 }
 
-#pizzas{
+h1 {
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+    color: #ce5051;
+}
+
+.main {
+    display: flex;
+
+}
+
+#pizzas {
     /* background-color: aquamarine; */
     width: 80%;
     display: flex;
@@ -25,19 +48,56 @@ body {
     gap: 2rem;
 }
 
-.pizza-card {
-    background-color: blanchedalmond;
+#order-div {
     width: 20%;
-    height: 35rem;
+    display: none;
+    /* set by script.js */
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
-.pizza-card img{
-    width: 100%;  
-    margin: 0 0 2rem 0;  
+/* END OF ORDER SECTION */
+
+.pizza-card {
+    width: 30rem;
+    height: 45rem;
+    background-color: #1c1a1b;
+    padding: 1rem;
+}
+
+.pizza-card img {
+    width: 100%;
+    margin: 0 0 2rem 0;
 }
 
 .pizza-content {
-    background-color: brown;
+    display: flex;
+    flex-direction: column;
+    line-height: 2rem;
+    min-height: 50%;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.pizza-content input {
+    display: block;
+    width: 5rem;
+    height: 4rem;
+    margin: 1rem auto;
+    border-radius: 50%;
+    text-align: center;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+    opacity: 1;
+}
+
+.pizza-content button {
+    background-color: #e90f31;
+    border: none;
+    padding: .8rem;
+    color: white;
 }
 
 /* BASKET SECTION */
@@ -63,13 +123,3 @@ body {
 }
 
 /* END OF BASKET SECTION */
-
-
-/* END OF ORDER SECTION */
-
-#order-div {
-    display: none;  /* set by script.js */
-    margin-top: 40px;
-    margin-bottom: 40px;
-}
-    /* END OF ORDER SECTION */
