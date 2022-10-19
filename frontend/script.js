@@ -9,7 +9,10 @@ let mainDiv = document.getElementById("pizzas");
 
 let actualOrder = [];
 
+let pizzaObj;
 let pizzaArray;
+let inputValue;
+let pizzaTitle;
 
 let getData = async () => {
   const response = await fetch("http://localhost:8080/api");
@@ -65,20 +68,33 @@ let getData = async () => {
 getData();
 
 const addToChart = (event) => {
-  let inputValue = event.target.previousSibling.value;
-  let pizzaObj;
-  let pizzaTitle = event.target.parentElement.children[0].innerText;
-
+  inputValue = event.target.previousSibling.value;
+  pizzaTitle = event.target.parentElement.children[0].innerText;
   for (const pizza of pizzaArray) {
-
     if (pizzaTitle === pizza.name) {
-
-      pizza.amount = Number(inputValue);
-      
+      pizza.amount = Number(inputValue);    
       pizzaObj = pizza;
     }
   }
-};
+
+  if(actualOrder.length === 0){
+    actualOrder.push(pizzaObj)
+  }else{   
+      const index = actualOrder.findIndex( pizza => pizza.id === pizzaObj.id)
+      if(index ===-1){
+        actualOrder.push(pizzaObj)
+      }else{
+        console.log(index)
+          actualOrder[index].amount = pizzaObj.amount
+      }
+  }
+  console.log(actualOrder)
+}
+
+
+
+
+
 
     
 
