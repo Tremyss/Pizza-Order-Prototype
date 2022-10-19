@@ -1,14 +1,12 @@
 console.log("script.js loaded");
 let mainDiv = document.getElementById("pizzas");
-
-// ? Kiolvassa a hozzá tartozó input mező value-ját.
-// * Global scope-on létrehozunk egy actualOrder nevű tömböt
-// ? az actualOrder-be belepusholjuk a databsae adott pizza-objectjét
-// ? beleírjuk az input mező actual value-ját
-// ? ha már szerepel ez a pizza-object, akkor majd kitaláljuk mi a fenét kezdjünk vele
+let orderDiv = document.getElementById("order-div");
+let basketListDiv = document.getElementById("basket-list")
+let priceSpan = document.querySelector("span")
+let userInstructions = document.getElementById("user-instructions")
+userInstructions.innerText = "Kérjük, add meg az adataidat, majd kattints a Rendelés gombra!"
 
 let actualOrder = [];
-
 let pizzaObj;
 let pizzaArray;
 let inputValue;
@@ -17,15 +15,10 @@ let pizzaTitle;
 let getData = async () => {
   const response = await fetch("http://localhost:8080/api");
   const myData = await response.json();
-  // console.log(myData)
   pizzaArray = myData;
 
   for (const pizza of myData) {
-    /*       let name = document.createElement("h1")
-                name.setAttribute("id", pizza.id)
-                name.setAttribute("class","pizza-name")
-                name.innerText= pizza.name;
-                document.getElementById("pizzas").appendChild(name) */
+
     let pizzaDiv = document.createElement("div");
     pizzaDiv.setAttribute("id", `${pizza.id}-div`);
     pizzaDiv.setAttribute("class", "pizza-card");
@@ -54,7 +47,6 @@ let getData = async () => {
     pizzaInput.setAttribute("type", "number");
     pizzaInput.setAttribute("id", `${pizza.id}-input`);
     pizzaContent.appendChild(pizzaInput);
-    // pizzaInput.addEventListener("input")
 
     let orderButton = document.createElement("button");
     orderButton.innerText = "Kosárhoz ad";
@@ -67,59 +59,93 @@ let getData = async () => {
 };
 getData();
 
+
+const generateBasket = () => {
+  let sumPrice = 0
+  basketListDiv.innerHTML = ""
+  for (const elem of actualOrder) {
+    let basketLineDiv = document.createElement("div")
+    basketLineDiv.setAttribute("class", "basket-line")
+
+    let pizzaNameDiv = document.createElement("div")
+    pizzaNameDiv.innerText = elem.name
+    basketLineDiv.appendChild(pizzaNameDiv)
+
+    let pizzaAmountDiv = document.createElement("div")
+    pizzaAmountDiv.innerText = elem.amount
+    basketLineDiv.appendChild(pizzaAmountDiv)
+
+    let pizzaPriceDiv = document.createElement("div")
+    pizzaPriceDiv.innerText = elem.price
+    basketLineDiv.appendChild(pizzaPriceDiv)
+
+    basketListDiv.appendChild(basketLineDiv)
+
+    sumPrice += elem.amount * elem.price
+  }
+  priceSpan.innerHTML = sumPrice
+}
+
 const addToChart = (event) => {
   inputValue = event.target.previousSibling.value;
   pizzaTitle = event.target.parentElement.children[0].innerText;
   for (const pizza of pizzaArray) {
     if (pizzaTitle === pizza.name) {
-      pizza.amount = Number(inputValue);    
+      pizza.amount = Number(inputValue);
       pizzaObj = pizza;
     }
   }
 
-  if(actualOrder.length === 0){
+  if (actualOrder.length === 0) {
     actualOrder.push(pizzaObj)
-  }else{   
-      const index = actualOrder.findIndex( pizza => pizza.id === pizzaObj.id)
-      if(index ===-1){
-        actualOrder.push(pizzaObj)
-      }else{
-        console.log(index)
-          actualOrder[index].amount = pizzaObj.amount
-      }
+  } else {
+    const index = actualOrder.findIndex(pizza => pizza.id === pizzaObj.id)
+    if (index === -1) {
+      actualOrder.push(pizzaObj)
+    } else {
+      actualOrder[index].amount = pizzaObj.amount
+    }
   }
-  console.log(actualOrder)
+  orderDiv.style.display = "block"
+  generateBasket()
 }
 
-
-document.getElementById("orderDiv").onsubmit= function (event){
+// Submit button megnyomásakor a vásárlói adatokat összeszedjük 
+// egy objectbe és a rendelt pizzák adataival együtt 
+// odaadjuk egy függvénynek
+document.getElementById("order-div").onsubmit = function (event) {
   event.preventDefault();
-  console.dir(event.target.elements)
+  const actualCustomer = {
+    name: event.target.name.value,
+    zipCode: event.target.zipCode.value,
+    city: event.target.city.value,
+    street: event.target.street.value,
+    houseNumber: event.target.houseNumber.value
+  }
+  const actualAllData = { ...actualCustomer, ...actualOrder }
+  sendOrderData(actualAllData)
+}
 
-  const name=event.target.name.value
-  console.log(name)
-
-  const zipCode=event.target.zipCode.value
-  console.log(zipCode)
-
-  const city=event.target.city.value
-  console.log(city)
-
-  const street = event.target.street.value
-  console.log(street)
-
-  const houseNumber = event.target.houseNumber.value
-  console.log(houseNumber)
-
-  console.log(event)
+// Függvény, ami a rendelés összes adatát POST requesttel elküldi a szervernek
+const sendOrderData = async (obj) => {
+  const data = JSON.stringify(obj)
+  const url = "http://localhost:8080/order"
+  const options = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: data
+  }
+  const response = await fetch(url, options)
+  console.log(response)
+  console.log(response.status)
+  userInstructions.innerText = (response.status === 200) ? `Köszönjük a rendelést, kedves ${obj.name}!` : response.status
+  actualOrder = []
 }
 
 
 
 
 
-
-    
 
 
 

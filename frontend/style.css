@@ -13,6 +13,7 @@ body {
 
     background-color: pink;
 }
+
 #pizzas{
     /* background-color: aquamarine; */
     width: 80%;
@@ -28,9 +29,7 @@ body {
     background-color: blanchedalmond;
     width: 20%;
     height: 35rem;
-
 }
-
 
 .pizza-card img{
     width: 100%;  
@@ -40,3 +39,37 @@ body {
 .pizza-content {
     background-color: brown;
 }
+
+/* BASKET SECTION */
+
+#basket {
+    display: flex;
+    flex-direction: column;
+}
+
+#basket-list {
+    display: flex;
+    flex-direction: column;
+}
+
+#basket-line {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.basket-line div {
+    display: inline-block;
+}
+
+/* END OF BASKET SECTION */
+
+
+/* END OF ORDER SECTION */
+
+#order-div {
+    display: none;  /* set by script.js */
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+    /* END OF ORDER SECTION */
