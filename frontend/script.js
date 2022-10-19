@@ -92,6 +92,29 @@ const addToChart = (event) => {
 }
 
 
+document.getElementById("orderDiv").onsubmit= function (event){
+  event.preventDefault();
+  console.dir(event.target.elements)
+
+  const name=event.target.name.value
+  console.log(name)
+
+  const zipCode=event.target.zipCode.value
+  console.log(zipCode)
+
+  const city=event.target.city.value
+  console.log(city)
+
+  const street = event.target.street.value
+  console.log(street)
+
+  const houseNumber = event.target.houseNumber.value
+  console.log(houseNumber)
+
+  console.log(event)
+}
+
+
 
 
 
