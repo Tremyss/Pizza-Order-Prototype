@@ -25,7 +25,8 @@ let getData = async () => {
 
     let pizzaDiv = document.createElement("div");
     pizzaDiv.setAttribute("id", `${pizza.id}-div`);
-    pizzaDiv.setAttribute("class", "pizza-card");
+    pizzaDiv.setAttribute("class", "pizza-card animate__animated animate__zoomIn");
+    
 
     let pizzaImg = document.createElement("img");
     pizzaImg.setAttribute("src", pizza.image);
@@ -84,7 +85,7 @@ const generateBasket = () => {
 
     let pizzaPriceDiv = document.createElement("div")
     pizzaPriceDiv.setAttribute("class","pizza-price")
-    pizzaPriceDiv.innerText = `${elem.price} Ft/db`
+    pizzaPriceDiv.innerText = `${elem.price * elem.amount} Ft`
     basketLineDiv.appendChild(pizzaPriceDiv)
 
     let deleteIcon = document.createElement("i")
