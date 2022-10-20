@@ -169,6 +169,7 @@ const sendOrderData = async (obj) => {
   console.log(response)
   console.log(response.status)
   userInstructions.innerText = (response.status === 200) ? `Köszönjük a rendelést, kedves ${obj.name}!` : response.status
+  userInstructions.setAttribute("class","order-confirm")
   actualOrder = []
 }
 

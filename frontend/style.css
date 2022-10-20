@@ -200,6 +200,14 @@ input[type=number]::-webkit-inner-spin-button {
     font-weight: 600;
 }
 
+.order-confirm{
+    font-size: 2.3rem;
+    /* text-decoration: underline; */
+    border-bottom: 0.2rem solid white;
+
+
+}
+
 #form input {
     padding: 0.5rem 0.3rem;
     background-color: transparent;
