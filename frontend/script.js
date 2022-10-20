@@ -14,6 +14,8 @@ let pizzaArray;
 let inputValue;
 let pizzaTitle;
 
+
+
 let getData = async () => {
   const response = await fetch("http://localhost:8080/api");
   const myData = await response.json();
@@ -71,22 +73,44 @@ const generateBasket = () => {
     basketLineDiv.setAttribute("class", "cart-line")
     
     let pizzaAmountDiv = document.createElement("div")
+    pizzaAmountDiv.setAttribute("class","pizza-amount")
     pizzaAmountDiv.innerText = `${elem.amount} db`
     basketLineDiv.appendChild(pizzaAmountDiv)
 
     let pizzaNameDiv = document.createElement("div")
+    pizzaNameDiv.setAttribute("class","pizza-name")
     pizzaNameDiv.innerText = elem.name
     basketLineDiv.appendChild(pizzaNameDiv)
 
     let pizzaPriceDiv = document.createElement("div")
+    pizzaPriceDiv.setAttribute("class","pizza-price")
     pizzaPriceDiv.innerText = `${elem.price} Ft/db`
     basketLineDiv.appendChild(pizzaPriceDiv)
+
+    let deleteIcon = document.createElement("i")
+    deleteIcon.setAttribute("class","fa fa-trash-o")
+    deleteIcon.addEventListener("click",deleteOrderPizza)
+    basketLineDiv.appendChild(deleteIcon)
 
     basketListDiv.appendChild(basketLineDiv)
 
     sumPrice += elem.amount * elem.price
   }
   priceSpan.innerHTML = `${sumPrice} Ft`
+}
+
+const deleteOrderPizza = (event)=>{
+  pizzaTitle = event.target.parentElement.children[1].innerText;
+  for(pizza of actualOrder){
+    if(pizza.name ===pizzaTitle){
+      actualOrder = actualOrder.filter((pizza)=>pizza.name !== pizzaTitle)
+    }
+  }
+  if(actualOrder.length ===0){
+    formDiv.style.display="none";
+  }
+  generateBasket();
+
 }
 
 const addToChart = (event) => {
@@ -147,6 +171,8 @@ const sendOrderData = async (obj) => {
   actualOrder = []
 }
 
+var myCarousel = document.querySelector('#myCarousel')
+var carousel = new bootstrap.Carousel(myCarousel)
 
 
 

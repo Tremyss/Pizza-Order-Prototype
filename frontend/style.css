@@ -31,9 +31,39 @@ h1 {
     text-align: center;
     color: #ce5051;
 }
-
+#carouselExampleControls{
+    height: 40rem;
+    margin-bottom: 5rem;
+}
+.carousel-item{
+    position: relative;
+}
+#hero-title{
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    font-size: 10rem;
+}
+#slogen{
+    position: absolute;
+    font-size: 7rem;
+    color: white;
+    top: 10%;
+    left: 20%;
+}
+#slogen2{
+    position: absolute;
+    font-size: 7rem;
+    color: white;
+    top: 10%;
+    left: 15%;
+}
+.carousel-inner{
+    height: 40rem;
+}
 .main {
     display: flex;
+    margin-bottom: 3rem;
 }
 
 #pizzas {
@@ -133,6 +163,13 @@ input[type=number]::-webkit-inner-spin-button {
     display: flex;
     flex-direction: row;
     justify-content: space-between;    
+}
+.pizza-amount{
+    width: 10%;
+}
+.pizza-name{
+    width: 50%;
+    text-align: left;
 }
 
 #cart-sum {
