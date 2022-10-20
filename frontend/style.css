@@ -34,12 +34,11 @@ h1 {
 
 .main {
     display: flex;
-
 }
 
 #pizzas {
     /* background-color: aquamarine; */
-    width: 80%;
+    width: 75%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -47,16 +46,6 @@ h1 {
     align-items: center;
     gap: 2rem;
 }
-
-#order-div {
-    width: 20%;
-    display: none;
-    /* set by script.js */
-    margin-top: 40px;
-    margin-bottom: 40px;
-}
-
-/* END OF ORDER SECTION */
 
 .pizza-card {
     width: 30rem;
@@ -100,26 +89,100 @@ input[type=number]::-webkit-inner-spin-button {
     color: white;
 }
 
-/* BASKET SECTION */
+/* ! ORDER SECTION */
+
+#order-div {
+    margin: 0 1.5rem;
+    width: 25%;
+    display: flex;
+    /* set by script.js */    
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    font-size: 1.8rem;
+}
+
+/* ! BASKET SECTION */
 
 #basket {
+    background-color: #525050;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
-#basket-list {
+#order-title {
+    background-color: #ce5051;
+    font-weight: 600; 
+    padding: 0.5rem;
+    font-size: 2.5rem;
+    
+}
+
+#cart-list {
+    
     display: flex;
     flex-direction: column;
+    gap: 0.7rem;
+    margin: 0.7rem 0;
 }
 
-#basket-line {
+.cart-line {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;    
+}
+
+#cart-sum {
+    display: flex;
     justify-content: space-between;
+    font-weight: 600;  
+    border-top: 0.1rem solid white;
+    padding: 0.5rem;
+    font-size: 2.5rem;   
 }
 
-.basket-line div {
-    display: inline-block;
+/* ? END OF BASKET SECTION */
+
+/* ! FILL OUT FORM */
+
+#form {
+    background-color: #686666;
+    width: 100%;
+    padding: 1.5rem;
+    margin: 0;
+    display: none;
+    flex-direction: column;
+    gap: 1.8rem;
+
 }
 
-/* END OF BASKET SECTION */
+#user-instructions {
+    font-weight: 600;
+}
+
+#form input {
+    padding: 0.5rem 0.3rem;
+    background-color: transparent;
+    border: none;
+    border-bottom: 0.1rem solid rgba(255, 255, 255, 0.763);
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgba(255, 255, 255, 0.763);
+    opacity: 1; /* Firefox */
+    font-size: 1.6rem;
+
+  }
+#submitBtn {
+    background-color: #e90f31;
+    border: none;
+    padding: .8rem;
+    color: white;
+    font-size: 2rem;
+}
+
+/* ? FILL OUT FORM */
+/* ? END OF ORDER SECTION */

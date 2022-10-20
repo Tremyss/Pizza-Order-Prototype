@@ -1,60 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="/content/favicon-pizza.ico" />
+    <title>Mario's Pizza</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/x-icon" href="/content/favicon-pizza.ico">
-  <title>Mario's Pizza</title>
-</head>
+  <body>
+    <h1>Mario's PIZZA</h1>
+    <div class="main">
+      <div id="pizzas"></div>
+      <div id="order-div">
+        <div id="basket">
+          <h4 id="order-title">RENDELÉSED:</h4>
 
-<body>
-  <h1>Mario's PIZZA</h1>
-  <div class="main">
-    <div id="pizzas"></div>
-    <div id="order-div">
-      <div id="basket">
-  
-        <h4>A rendelés összesítése:</h4>
-        <div id="basket-list"></div>
-        <div class="basket-line">
-          <div>Ár összesen:</div>
-          <div><span></span> forint</div>
+          <div class="" id="cart-list"></div>
+          <div id="cart-sum">
+            <div>Ár összesen:</div>
+            <div><span></span></div>
+          </div>
         </div>
+
+        <form id="form">
+          <h5 id="user-instructions"></h5>
+
+          <input type="text" name="name" placeholder="Név" />
+
+          <input type="text" name="zipCode" placeholder="Irsz." />
+
+          <input type="text" name="city" placeholder="Város" />
+
+          <input type="text" name="street" placeholder="Utca" />
+
+          <input type="text" name="houseNumber" placeholder="Hsz." />
+
+          <button type="submit" id="submitBtn">Megrendelem!</button>
+        </form>
+        <h2 id="null-order">Még nem rendeltél semmit</h2>
       </div>
-  
-      <form id="form">
-        <h5 id="user-instructions">Kérjük, add meg az adataidat, majd kattints a Rendelés gombra!</h5>
-        <label for="name">Név</label>
-        <input type="text" name="name" placeholder="Név">
-  
-        <label for="zipCode">Irányítószám</label>
-        <input type="text" name="zipCode" placeholder="irsz.">
-  
-        <label for="city">Város</label>
-        <input type="text" name="city" placeholder="Város">
-  
-        <label for="street">Utca</label>
-        <input type="text" name="street" placeholder="Utca">
-  
-        <label for="houseNumber">Házszám</label>
-        <input type="text" name="houseNumber" placeholder="hsz.">
-  
-        <button type="submit" id="submitBtn">Rendelés</button>
-  
-      </form>
-  
     </div>
-  
-    
-  </div>
 
-
-  
-
-  <script src="script.js"></script>
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>

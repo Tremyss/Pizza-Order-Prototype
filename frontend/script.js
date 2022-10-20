@@ -1,9 +1,11 @@
 console.log("script.js loaded");
 let mainDiv = document.getElementById("pizzas");
 let orderDiv = document.getElementById("order-div");
-let basketListDiv = document.getElementById("basket-list")
+let basketListDiv = document.getElementById("cart-list")
 let priceSpan = document.querySelector("span")
 let userInstructions = document.getElementById("user-instructions")
+let formDiv = document.getElementById("form");
+let nullOrder = document.getElementById("null-order");
 userInstructions.innerText = "Kérjük, add meg az adataidat, majd kattints a Rendelés gombra!"
 
 let actualOrder = [];
@@ -66,25 +68,25 @@ const generateBasket = () => {
   basketListDiv.innerHTML = ""
   for (const elem of actualOrder) {
     let basketLineDiv = document.createElement("div")
-    basketLineDiv.setAttribute("class", "basket-line")
+    basketLineDiv.setAttribute("class", "cart-line")
+    
+    let pizzaAmountDiv = document.createElement("div")
+    pizzaAmountDiv.innerText = `${elem.amount} db`
+    basketLineDiv.appendChild(pizzaAmountDiv)
 
     let pizzaNameDiv = document.createElement("div")
     pizzaNameDiv.innerText = elem.name
     basketLineDiv.appendChild(pizzaNameDiv)
 
-    let pizzaAmountDiv = document.createElement("div")
-    pizzaAmountDiv.innerText = elem.amount
-    basketLineDiv.appendChild(pizzaAmountDiv)
-
     let pizzaPriceDiv = document.createElement("div")
-    pizzaPriceDiv.innerText = elem.price
+    pizzaPriceDiv.innerText = `${elem.price} Ft/db`
     basketLineDiv.appendChild(pizzaPriceDiv)
 
     basketListDiv.appendChild(basketLineDiv)
 
     sumPrice += elem.amount * elem.price
   }
-  priceSpan.innerHTML = sumPrice
+  priceSpan.innerHTML = `${sumPrice} Ft`
 }
 
 const addToChart = (event) => {
@@ -107,7 +109,9 @@ const addToChart = (event) => {
       actualOrder[index].amount = pizzaObj.amount
     }
   }
-  orderDiv.style.display = "block"
+  
+  formDiv.style.display = "flex"
+  nullOrder.style.display = "none"
   generateBasket()
 }
 
